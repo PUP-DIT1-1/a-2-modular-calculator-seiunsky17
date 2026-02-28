@@ -25,8 +25,8 @@ public class Calculator {
         
              switch(choice){
                  case "1" ->  {
-                    // double result=addNumbers(numbers);
-                    // System.out.println("Sum: " + result);
+                    double result=addNumbers(numbers);
+                    System.out.println("Sum: " + result);
                  }
                  case "2" -> {
                     // double result=subtractNumbers(numbers);
@@ -49,5 +49,24 @@ public class Calculator {
                  }
             }
         }       
+    }
+    static double addNumbers(ArrayList<Double> numbers){
+        double total=0;
+        while(true){
+             System.out.print("Enter numbers (type done to finish): ");
+             String input=scan.nextLine().trim();
+            
+            if(input.equalsIgnoreCase("done")){
+             return total;
+            }
+            try {
+                double number=Double.parseDouble(input);
+                numbers.add(number);
+                total+=number;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Invalid input! Please try again");
+            }
+        }
     }
 }
