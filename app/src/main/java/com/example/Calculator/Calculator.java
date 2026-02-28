@@ -3,11 +3,51 @@
  */
 package com.example.Calculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Calculator {
-    static Scanner scanner=new Scanner(System.in);
+    static Scanner scan=new Scanner(System.in);
+    static ArrayList<Double> numbers = new ArrayList<>();
+    
     public static void main(String[] args) {
-       
+       while(true){
+             
+             System.out.println("\n--- Calculator ---");
+             System.out.println("1. Addition");
+             System.out.println("2. Subtraction");
+             System.out.println("3. Multiplication");
+             System.out.println("4. Division");
+             System.out.println("5. Exit");
         
+             System.out.print("Enter choice: ");
+             String choice=scan.nextLine().trim();
+        
+             switch(choice){
+                 case "1" ->  {
+                    // double result=addNumbers(numbers);
+                    // System.out.println("Sum: " + result);
+                 }
+                 case "2" -> {
+                    // double result=subtractNumbers(numbers);
+                    // System.out.println("Difference: " + result);
+                 }
+                 case "3" -> {
+                    // double result=multiplyingNumbers(numbers);
+                    // System.out.println("Product: " + result);
+                 }
+                 case "4" -> {
+                    // double result=dividingNumbers(numbers);
+                    // System.out.println("Quotient: " + result);
+                 }
+                 case "5" -> {
+                     return;
+                 }
+                 default -> {
+                     System.out.println("Invalid choice");
+                    
+                 }
+            }
+        }       
     }
 }
