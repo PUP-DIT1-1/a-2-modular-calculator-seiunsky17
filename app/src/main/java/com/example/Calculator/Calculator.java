@@ -33,8 +33,8 @@ public class Calculator {
                      System.out.println("Difference: " + result);
                  }
                  case "3" -> {
-                    // double result=multiplyingNumbers(numbers);
-                    // System.out.println("Product: " + result);
+                     double result=multiplyingNumbers(numbers);
+                     System.out.println("Product: " + result);
                  }
                  case "4" -> {
                     // double result=dividingNumbers(numbers);
@@ -90,6 +90,25 @@ public class Calculator {
                 else{
                     total-=number;
                 }
+            }
+            catch(NumberFormatException e){
+                System.out.println("Invalid input! Please try again");
+            }
+        }
+    }
+    static double multiplyingNumbers(ArrayList<Double> numbers){
+        double total=1;
+        while(true){
+             System.out.print("Enter numbers: ");
+             String input=scan.nextLine().trim();
+            
+            if(input.equalsIgnoreCase("done")){
+             return total;
+            }
+            try {
+                double number=Double.parseDouble(input);
+                numbers.add(number);
+                total*=number;
             }
             catch(NumberFormatException e){
                 System.out.println("Invalid input! Please try again");
