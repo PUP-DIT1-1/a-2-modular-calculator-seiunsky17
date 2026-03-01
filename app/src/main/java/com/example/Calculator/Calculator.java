@@ -29,8 +29,8 @@ public class Calculator {
                     System.out.println("Sum: " + result);
                  }
                  case "2" -> {
-                    // double result=subtractNumbers(numbers);
-                    // System.out.println("Difference: " + result);
+                     double result=subtractNumbers(numbers);
+                     System.out.println("Difference: " + result);
                  }
                  case "3" -> {
                     // double result=multiplyingNumbers(numbers);
@@ -63,6 +63,33 @@ public class Calculator {
                 double number=Double.parseDouble(input);
                 numbers.add(number);
                 total+=number;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Invalid input! Please try again");
+            }
+        }
+    }
+    static double subtractNumbers(ArrayList<Double> numbers){
+        double total=0;
+        boolean isFirst=true;
+        while(true){
+             System.out.print("Enter numbers (type done to finish): ");
+             String input=scan.nextLine().trim();
+            
+            if(input.equalsIgnoreCase("done")){
+             return total;
+            }
+            try {
+                double number=Double.parseDouble(input);
+                numbers.add(number);
+                
+                if(isFirst){
+                    total=number;
+                    isFirst=false;
+                }
+                else{
+                    total-=number;
+                }
             }
             catch(NumberFormatException e){
                 System.out.println("Invalid input! Please try again");
